@@ -1,0 +1,5 @@
+input: user
+output: user
+type: protobuffuer
+link:
+  url: /v1/api/a

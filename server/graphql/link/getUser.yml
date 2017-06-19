@@ -1,0 +1,6 @@
+input: user
+output: user
+type: http
+link:
+  url: /v1/api/a
+  method: post

@@ -1,0 +1,6 @@
+input: user
+type: user
+# ../a.js 中默认导出函数: input -> type
+# 监视 instance/arrow/function 文件夹变化
+# 创建新函数自动引入
+module: ../a.js

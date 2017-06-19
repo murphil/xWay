@@ -1,0 +1,7 @@
+port: 5000
+graphql: graphql
+graphiql: graphiql
+backend:
+  b1:
+    host: localhost
+    port: 6000

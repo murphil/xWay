@@ -1,0 +1,5 @@
+input: user
+type: user
+link:
+  url: /v1/api/a
+  method: post

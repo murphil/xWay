@@ -1,0 +1,3 @@
+static_path: client
+PORT: 6742
+HOST: localhost

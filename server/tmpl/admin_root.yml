@@ -1,0 +1,26 @@
+email: murphy@iffy.me
+password: admin123
+possess: # 拥有的实例/全部权限/可收授别人任意实例权限
+  - default
+# 低优先级用户不能操作高优先级用户
+priority: 0 # 数字越大，优先级越低
+authority: # 全局权限
+  - addInstance # 默认
+  - delInstance # 默认
+  - delOthersInstance # 优先级判定
+  - addUser
+  - delUser # 优先级判定
+  - grant # 优先级判定
+  - revoke # 优先级判定
+privilege:
+  default: # 实例权限
+    - read
+    - write
+    - delete
+    - addFunction
+    - addLink
+    - addType
+    - delFunction
+    - delLink
+    - delType
+
