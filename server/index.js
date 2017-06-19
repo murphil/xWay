@@ -29,8 +29,10 @@ app.use(express.static(STATIC_PATH));
 app.use('/', proxy('localhost:7749'))
 
 function onConnection(socket) {
-  socket.emit('connection', 'hello world')
-  socket.on('drawing', (data) => socket.broadcast.emit('drawing', data));
+  socket.on('news', (data) => {
+    console.log('news:', data)
+    socket.broadcast.emit('news', data)
+  });
 }
 
 io.on('connection', onConnection);

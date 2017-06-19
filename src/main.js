@@ -4,11 +4,12 @@ import router from './router'
 
 Vue.config.productionTip = false
 
-var socket = io('http://localhost:6742');
+const socket = io(`http://localhost:6742`);
 socket.on('news', function (data) {
   console.log(data);
   socket.emit('my other event', { my: 'data' });
 });
+global.socket = socket
 
 new Vue({
   el: '#app',
