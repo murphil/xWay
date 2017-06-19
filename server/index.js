@@ -4,9 +4,10 @@ const app = express();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
 const graphqlHTTP = require('express-graphql')
-const { buildSchema } = require('graphql')
-const proxy = require('http-proxy')
+const proxy = require('express-http-proxy')
+
 const CONF = require('./conf')
+const port = CONF.server.PORT || 3000;
 
 const root = {
   ip(args, request) {
@@ -19,19 +20,21 @@ app.use('/graphql', graphqlHTTP({
   graphiql: true,
 }))
 
+/*
 const fs = require('fs')
 const path = require('path')
 const STATIC_PATH = path.resolve(__dirname, '..', 'static')
-const port = CONF.server.PORT || 3000;
-
-
 app.use(express.static(STATIC_PATH));
+*/
+app.use('/', proxy('localhost:7749'))
 
-function onConnection(socket){
+function onConnection(socket) {
   socket.emit('connection', 'hello world')
   socket.on('drawing', (data) => socket.broadcast.emit('drawing', data));
 }
 
 io.on('connection', onConnection);
+
+
 
 http.listen(port, () => console.log(`${chalk.green('starting listen')} :${chalk.blue(CONF.server.PORT)}`));
