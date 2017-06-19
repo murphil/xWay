@@ -1,11 +1,11 @@
-# GraphGate
+# xWay
 
-## 基于 graphql 的 API 框架
+## 基于 graphql 的 API Gateway
 
 
 - 技术栈
   - Socket.io 连接管理系统
-  - 管理系统 Cycle.js(避免使用 Webpack)
+  - 管理系统 vue2
   - 实例 GraphQL
 
 ### 目标
